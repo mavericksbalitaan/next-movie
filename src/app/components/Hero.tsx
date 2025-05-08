@@ -1,22 +1,28 @@
 import Image from "next/image";
+import SearchBar from "./SearchBar";
 
 export default function Hero() {
   return (
-    <div className="bg-black h-[70vh] min-w-screen md:h-screen flex flex-col justify-center items-center bg-[url('/hero-bg.png')]">
-      <Image
-        src="/hero.png"
-        width={700}
-        height={100}
-        alt="Hero Image"
-        draggable={false}
-      />
-      <h1 className="text-white text-5xl text-center mt-4">
-        🎬 Your Ultimate{" "}
-        <span className="text-transparent bg-clip-text bg-gradient-to-t from-white to-purple-950">
-          Movie{" "}
-        </span>
-        Database
-      </h1>
+    <div>
+      <div className="bg-black min-h-[60vh] min-w-screen md:min-h-screen flex flex-col justify-center items-center bg-[url('/hero-bg.png')]">
+        <Image
+          src="/hero.png"
+          width={600}
+          height={100}
+          alt="Hero Image"
+          draggable={false}
+        />
+        <h1 className="text-white text-5xl text-center mt-4">
+          🎬 Your Ultimate{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-t from-white to-purple-950">
+            Movie{" "}
+          </span>
+          Database
+        </h1>
+      </div>
+      <div className="min-h-screen min-w-screen bg-black flex flex-col items-center">
+        <SearchBar />
+      </div>
     </div>
   );
 }
