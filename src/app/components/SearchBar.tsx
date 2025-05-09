@@ -79,7 +79,7 @@ export default function SearchBar() {
           onChange={(e) => setSearchTerm(e.target.value)}
         />
       </div>
-      <div className="w-full max-w-6xl px-4 m-8">
+      <div className="w-full max-w-6xl px-4 m-8 overflow-x-scroll">
         <h1 className="text-white text-2xl mb-4 text-left montserrat-bold">
           Top 10 Movies This Week
         </h1>

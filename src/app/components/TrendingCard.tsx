@@ -1,9 +1,5 @@
 import Image from "next/image";
-
-interface TrendingMovie {
-  title: string;
-  poster_path: string;
-}
+import { TrendingMovie } from "@/types";
 
 export default function TrendingCard({
   movie,
