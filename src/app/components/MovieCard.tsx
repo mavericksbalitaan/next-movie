@@ -10,15 +10,28 @@ interface Movie {
 }
 
 interface MovieCard {
-  movie: Movie
+  movie: Movie;
 }
 
 export default function MovieCard({ movie }: MovieCard) {
-  const { title, poster_path, vote_average, original_language, release_date } =
-    movie;
+  const {
+    title,
+    poster_path,
+    vote_average,
+    original_language,
+    release_date,
+    id,
+  } = movie;
+
+  const handleClick = (movie_id: number) => {
+    alert(movie_id);
+  };
 
   return (
-    <div className="w-[300px]">
+    <div
+      className="w-[300px] md:w-[200px] cursor-pointer"
+      onClick={() => handleClick(id)}
+    >
       <div className="overflow-hidden">
         <Image
           src={

@@ -20,7 +20,7 @@ export default function Hero() {
           Database
         </h1>
       </div>
-      <div className="min-h-screen min-w-screen bg-black flex flex-col items-center">
+      <div className="min-h-screen min-w-screen bg-black flex flex-col items-center pb-32">
         <SearchBar />
       </div>
     </div>
