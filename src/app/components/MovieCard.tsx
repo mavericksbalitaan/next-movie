@@ -11,8 +11,6 @@ export default function MovieCard({ movie }: { movie: Movie }) {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const dispatch = useDispatch();
 
-  console.log(favorites, "favorites");
-
   const handleClick = () => {
     setIsModalOpen(!isModalOpen);
   };

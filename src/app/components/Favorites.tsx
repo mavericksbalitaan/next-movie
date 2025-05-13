@@ -1,6 +1,7 @@
 import { RootState } from "../redux/store";
 import { useSelector } from "react-redux";
 import FavoriteCard from "./FavoriteCard";
+import DownloadFile from "./DownloadFile";
 
 export default function Favorites() {
   const favorites = useSelector((state: RootState) => state.favorites);
@@ -10,10 +11,13 @@ export default function Favorites() {
   }
 
   return (
-    <div className="flex gap-x-24 overflow-x-scroll overflow-y-hidden">
-      {favorites.map((fave, idx) => (
-        <FavoriteCard key={fave.id} movie={fave} rank={idx + 1} />
-      ))}
-    </div>
+    <>
+      <DownloadFile />
+      <div className="flex gap-x-24 overflow-x-scroll overflow-y-hidden">
+        {favorites.map((fave, idx) => (
+          <FavoriteCard key={fave.id} movie={fave} rank={idx + 1} />
+        ))}
+      </div>
+    </>
   );
 }
