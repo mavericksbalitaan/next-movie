@@ -36,7 +36,7 @@ export default function DownloadFile() {
 
   return (
     <>
-      <p className="text-white">
+      <p className="text-white text-center">
         Download list as{" "}
         <a
           href="#"

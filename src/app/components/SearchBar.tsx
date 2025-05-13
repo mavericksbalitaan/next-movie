@@ -62,10 +62,10 @@ export default function SearchBar() {
 
   return (
     <div className="min-h-screen flex flex-col items-center">
-      <div className="m-4 flex flex-row items-center gap-4 bg-purple-950 py-2 px-2 rounded-4xl">
+      <div className="m-4 flex flex-row items-center gap-4 bg-purple-950 py-2 pl-2 pr-4 rounded-4xl">
         <button
           type="button"
-          className="w-[50px] p-2 bg-purple-950 border-purple-900 border-4 rounded-full cursor-pointer"
+          className="w-[50px] p-2 bg-purple-950 border-purple-900 border-4 rounded-full cursor-pointer hover:bg-white"
           onClick={handleSearch}
           disabled={isLoading}
         >

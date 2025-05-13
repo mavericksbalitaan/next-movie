@@ -29,7 +29,7 @@ export default function Video({ movie_id }: { movie_id: number | undefined }) {
       console.log(`Error fetching videos: ${err}`);
       setErrorMessage("Error fetching videos");
     }
-  }, []);
+  }, [movie_id]);
 
   useEffect(() => {
     fetchVideos();
@@ -43,6 +43,7 @@ export default function Video({ movie_id }: { movie_id: number | undefined }) {
           width={300}
           height={200}
           alt="no video"
+          draggable={false}
         />
       ) : (
         <ReactPlayer url={`${yt_url}${vid_key}`} />

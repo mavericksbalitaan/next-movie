@@ -22,7 +22,7 @@ export default function Modal({ movie, isModalOpen, handleClose }: ModalProps) {
       className="backdrop-blur-sm flex flex-col max-w-screen max-h-screen fixed inset-0 justify-center items-center"
       onClick={handleClose}
     >
-      <div className="flex flex-col p-4 items-center w-[90vw] md:items-center md:justify-center bg-black text-white border-5 border-solid  border-yellow-400 md:w-[100vw] md:h-[90vh] rounded-2xl">
+      <div className="flex flex-col p-4 items-center w-[100vw] md:items-center md:justify-center bg-black text-white md:border-5 border-solid  md:border-yellow-400 md:w-[90vw] md:h-[90vh] rounded-2xl">
         <div className="flex flex-col gap-4 md:flex-row md:w-[80vw] md:items-start">
           <div className="flex flex-col">
             <Image
@@ -35,10 +35,11 @@ export default function Modal({ movie, isModalOpen, handleClose }: ModalProps) {
               height={500}
               alt={title}
               className="min-w-[400px]"
+              draggable={false}
             />
             <div className="flex gap-1">
-              <Image src="/star.svg" alt="Star rating" width={16} height={16} />
-              <p className="text-white">
+              <Image src="/star.svg" width={16} height={16} alt="star svg" draggable={false} />
+              <p className="text-wite">
                 {vote_average ? vote_average.toFixed(1) : "N/A"}
               </p>
               <span className="text-white">•</span>

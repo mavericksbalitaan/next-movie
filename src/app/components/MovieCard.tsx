@@ -40,6 +40,7 @@ export default function MovieCard({ movie }: { movie: Movie }) {
               height={500}
               alt={title}
               className="hover:scale-[1.05] duration-300"
+              draggable={false}
             />
           </div>
           <h2 className="text-white">{title}</h2>

@@ -41,6 +41,7 @@ export default function TrendingCard({
           height={150}
           alt={title}
           className="hover:border-white hover:border-[5px] duration-300 max-w-[125px]"
+          draggable={false}
         />
       </div>
       <Modal
