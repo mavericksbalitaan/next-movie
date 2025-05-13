@@ -13,7 +13,7 @@ export default function Favorites() {
   return (
     <>
       <DownloadFile />
-      <div className="flex gap-x-24 overflow-x-scroll overflow-y-hidden">
+      <div className="flex gap-x-24 max-w-screen overflow-x-scroll overflow-y-hidden">
         {favorites.map((fave, idx) => (
           <FavoriteCard key={fave.id} movie={fave} rank={idx + 1} />
         ))}

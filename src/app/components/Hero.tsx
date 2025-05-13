@@ -4,7 +4,7 @@ import SearchBar from "./SearchBar";
 export default function Hero() {
   return (
     <div>
-      <div className="bg-black min-h-[60vh] min-w-screen md:min-h-screen flex flex-col justify-center items-center bg-[url('/hero-bg.png')]">
+      <div className="bg-black min-h-[60vh] md:min-h-screen flex flex-col justify-center items-center bg-[url('/hero-bg.png')]">
         <Image
           src="/hero.png"
           width={600}
@@ -20,7 +20,7 @@ export default function Hero() {
           Database
         </h1>
       </div>
-      <div className="min-h-screen min-w-screen bg-black flex flex-col items-center pb-32">
+      <div className="min-h-screen bg-black flex flex-col items-center pb-32">
         <SearchBar />
       </div>
     </div>

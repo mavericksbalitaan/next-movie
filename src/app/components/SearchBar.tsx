@@ -61,7 +61,7 @@ export default function SearchBar() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center">
+    <div className="flex flex-col items-center w-full">
       <div className="m-4 flex flex-row items-center gap-4 bg-purple-950 py-2 pl-2 pr-4 rounded-4xl">
         <button
           type="button"
@@ -80,20 +80,20 @@ export default function SearchBar() {
           onChange={(e) => setSearchTerm(e.target.value)}
         />
       </div>
-      <div className="w-full max-w-6xl px-4 m-8 overflow-x-scroll">
+      <div className="px-4 m-8 w-full max-w-6xl">
         <h1 className="text-white text-2xl mb-4 text-left montserrat-bold">
           Top 10 Movies This Week
         </h1>
         <Trending />
       </div>
-      <div className="w-full max-w-6xl px-4 m-8 overflow-x-scroll">
+      <div className="px-4 m-8 w-full max-w-6xl">
         <h1 className="text-white text-2xl mb-4 text-left montserrat-bold">
           My Favorites
         </h1>
         <Favorites />
       </div>
 
-      <div className="w-full max-w-6xl px-4">
+      <div className="px-4 m-8 w-full max-w-6xl">
         <h1 className="text-white text-2xl mb-4 text-left montserrat-bold">
           {searchTerm
             ? `Search Results: ${movieList.length}`

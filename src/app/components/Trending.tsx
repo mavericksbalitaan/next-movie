@@ -48,7 +48,7 @@ export default function Trending() {
 
   return (
     <>
-      <div className="flex gap-x-24 overflow-x-scroll overflow-y-hidden">
+      <div className="flex gap-x-24 max-w-screen overflow-x-scroll overflow-y-hidden">
         {isLoading ? (
           <p className="text-white text-center">Loading...</p>
         ) : error ? (
