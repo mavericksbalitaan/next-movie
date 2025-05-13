@@ -1,9 +1,11 @@
 import { useCallback, useEffect, useState } from "react";
 import ReactPlayer from "react-player/youtube";
 import { Clip } from "@/types";
+import Image from "next/image";
 
 export default function Video({ movie_id }: { movie_id: number | undefined }) {
   const [vid_key, setVidKey] = useState<number | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const yt_url = "https://www.youtube.com/watch?v=";
 
@@ -25,6 +27,7 @@ export default function Video({ movie_id }: { movie_id: number | undefined }) {
       setVidKey(clips[0].key);
     } catch (err) {
       console.log(`Error fetching videos: ${err}`);
+      setErrorMessage("Error fetching videos");
     }
   }, []);
 
@@ -34,7 +37,16 @@ export default function Video({ movie_id }: { movie_id: number | undefined }) {
 
   return (
     <>
-      <ReactPlayer url={`${yt_url}${vid_key}`} />
+      {errorMessage ? (
+        <Image
+          src="https://dummyimage.com/300x200/000/fff&text=No+Available+Video+Found."
+          width={300}
+          height={200}
+          alt="no video"
+        />
+      ) : (
+        <ReactPlayer url={`${yt_url}${vid_key}`} />
+      )}
     </>
   );
 }

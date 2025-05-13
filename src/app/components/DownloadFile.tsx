@@ -44,7 +44,7 @@ export default function DownloadFile() {
           onClick={handleClick}
           className="text-blue-400 hover:underline"
         >
-          JSON
+          📁JSON
         </a>
       </p>
     </>

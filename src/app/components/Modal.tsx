@@ -34,7 +34,7 @@ export default function Modal({ movie, isModalOpen, handleClose }: ModalProps) {
               width={500}
               height={500}
               alt={title}
-              className=""
+              className="min-w-[400px]"
             />
             <div className="flex gap-1">
               <Image src="/star.svg" alt="Star rating" width={16} height={16} />
