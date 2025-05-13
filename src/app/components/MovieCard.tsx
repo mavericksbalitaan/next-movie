@@ -2,12 +2,16 @@ import Image from "next/image";
 import Modal from "./Modal";
 import { useState } from "react";
 import { Movie } from "@/types";
-import { useDispatch } from "react-redux";
-import { addToFavorite } from "../redux/faveSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { addToFavorite, deleteFromFavorite } from "../redux/faveSlice";
+import { RootState } from "../redux/store";
 
 export default function MovieCard({ movie }: { movie: Movie }) {
+  const favorites = useSelector((state: RootState) => state.favorites);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const dispatch = useDispatch();
+
+  console.log(favorites, "favorites");
 
   const handleClick = () => {
     setIsModalOpen(!isModalOpen);
@@ -55,12 +59,21 @@ export default function MovieCard({ movie }: { movie: Movie }) {
             <span className="text-gray-400">{release_date.slice(0, 4)}</span>
           </div>
         </div>
-        <p
-          className="text-white cursor-pointer hover:text-yellow-500"
-          onClick={() => dispatch(addToFavorite(movie))}
-        >
-          ❤️ Add to My Favorites
-        </p>
+        {favorites.some((fave) => fave.id === movie.id) ? (
+          <p
+            className="text-white cursor-pointer hover:text-yellow-500"
+            onClick={() => dispatch(deleteFromFavorite(movie))}
+          >
+            ❤️ Remove from My Favorites
+          </p>
+        ) : (
+          <p
+            className="text-white cursor-pointer hover:text-yellow-500"
+            onClick={() => dispatch(addToFavorite(movie))}
+          >
+            ♡ Add to My Favorites
+          </p>
+        )}
       </div>
       <Modal
         movie={movie}
