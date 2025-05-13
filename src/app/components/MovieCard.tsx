@@ -5,17 +5,6 @@ import { Movie } from "@/types";
 
 export default function MovieCard({ movie }: { movie: Movie }) {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-
-  const {
-    title,
-    poster_path,
-    vote_average,
-    original_language,
-    release_date,
-  } = movie;
-
-  console.log(movie)
-
   const handleClick = () => {
     setIsModalOpen(!isModalOpen);
   };
@@ -23,6 +12,9 @@ export default function MovieCard({ movie }: { movie: Movie }) {
   const handleClose = () => {
     setIsModalOpen(!isModalOpen);
   };
+
+  const { title, poster_path, vote_average, original_language, release_date } =
+    movie;
 
   return (
     <>

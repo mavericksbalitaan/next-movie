@@ -47,20 +47,22 @@ export default function Trending() {
   }, [fetchTrending]);
 
   return (
-    <div className="flex gap-x-24 overflow-x-scroll overflow-y-hidden">
-      {isLoading ? (
-        <p className="text-white text-center">Loading...</p>
-      ) : error ? (
-        <p className="text-red-500 text-center">Error: {error}</p>
-      ) : trending.length === 0 ? (
-        <p className="text-white text-center">
-          No trending movies found. Try adjusting your search.
-        </p>
-      ) : (
-        trending?.map((movie, idx) => (
-          <TrendingCard key={idx} movie={movie} rank={idx + 1} />
-        ))
-      )}
-    </div>
+    <>
+      <div className="flex gap-x-24 overflow-x-scroll overflow-y-hidden">
+        {isLoading ? (
+          <p className="text-white text-center">Loading...</p>
+        ) : error ? (
+          <p className="text-red-500 text-center">Error: {error}</p>
+        ) : trending.length === 0 ? (
+          <p className="text-white text-center">
+            No trending movies found. Try adjusting your search.
+          </p>
+        ) : (
+          trending?.map((movie, idx) => (
+            <TrendingCard key={idx} movie={movie} rank={idx + 1} />
+          ))
+        )}
+      </div>
+    </>
   );
 }
