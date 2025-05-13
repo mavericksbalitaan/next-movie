@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import AllMovies from "./AllMovies";
 import { useDebounce } from "react-use";
 import Trending from "./Trending";
+import Favorites from "./Favorites";
 
 export default function SearchBar() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -84,6 +85,12 @@ export default function SearchBar() {
           Top 10 Movies This Week
         </h1>
         <Trending />
+      </div>
+      <div className="w-full max-w-6xl px-4 m-8 overflow-x-scroll">
+        <h1 className="text-white text-2xl mb-4 text-left montserrat-bold">
+          My Favorites
+        </h1>
+        <Favorites />
       </div>
 
       <div className="w-full max-w-6xl px-4">

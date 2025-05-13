@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import ReactPlayer from "react-player/youtube";
 import { Clip } from "@/types";
 
@@ -7,7 +7,7 @@ export default function Video({ movie_id }: { movie_id: number | undefined }) {
 
   const yt_url = "https://www.youtube.com/watch?v=";
 
-  const fetchVideos = async () => {
+  const fetchVideos = useCallback(async () => {
     const endpoint = `${process.env.NEXT_PUBLIC_BASE_URL}/movie/${movie_id}/videos?language=en-US`;
 
     const API_OPTIONS = {
@@ -21,17 +21,16 @@ export default function Video({ movie_id }: { movie_id: number | undefined }) {
     try {
       const response = await fetch(endpoint, API_OPTIONS);
       const data = await response.json();
-      // const clips = data.results.filter((vid: Clip) => vid.type == "Clip");
       const clips = data.results.filter((vid: Clip) => vid.type !== "");
       setVidKey(clips[0].key);
     } catch (err) {
       console.log(`Error fetching videos: ${err}`);
     }
-  };
+  }, []);
 
   useEffect(() => {
     fetchVideos();
-  }, []);
+  }, [fetchVideos]);
 
   return (
     <>
