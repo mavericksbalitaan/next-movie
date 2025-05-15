@@ -10,6 +10,7 @@ export default function SearchBar() {
   const [searchTerm, setSearchTerm] = useState("");
   const [movieList, setMovieList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [searchResults, setSearchResults] = useState<number | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState("");
 
@@ -20,7 +21,7 @@ export default function SearchBar() {
     setError(null);
     const endpoint = query
       ? `${process.env.NEXT_PUBLIC_BASE_URL}/search/movie?query=${encodeURIComponent(query)}`
-      : `${process.env.NEXT_PUBLIC_BASE_URL}/discover/movie?sort_by=popularity.desc`;
+      : `${process.env.NEXT_PUBLIC_BASE_URL}/discover/movie?include_adult=false&sort_by=popularity.desc`;
 
     const API_OPTIONS = {
       method: "GET",
@@ -37,6 +38,7 @@ export default function SearchBar() {
       }
       const data = await response.json();
       setMovieList(data.results || []);
+      setSearchResults(data.total_results);
     } catch (err: unknown) {
       console.error(`Error fetching movies ${err}`);
       let errorMessage = "An unknown error occurred";
@@ -96,7 +98,7 @@ export default function SearchBar() {
       <div className="px-4 m-8 w-full max-w-6xl">
         <h1 className="text-white text-2xl mb-4 text-left montserrat-bold">
           {searchTerm
-            ? `Search Results: ${movieList.length}`
+            ? `Search Results: (${searchResults?.toLocaleString()})`
             : "Hot New Releases"}
         </h1>
 
@@ -109,7 +111,7 @@ export default function SearchBar() {
             No movies found. Try adjusting your search.
           </p>
         ) : (
-          <AllMovies movies={movieList} />
+          <AllMovies movies={movieList} searchTerm={searchTerm} />
         )}
       </div>
     </div>

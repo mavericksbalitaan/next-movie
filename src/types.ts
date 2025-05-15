@@ -11,6 +11,7 @@ export interface Movie {
 
 export interface Movies {
   movies: Movie[];
+  searchTerm: string
 }
 
 export interface ModalProps {
