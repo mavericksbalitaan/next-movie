@@ -7,7 +7,7 @@ import { addToFavorite, deleteFromFavorite } from "../redux/faveSlice";
 import { RootState } from "../redux/store";
 
 export default function MovieCard({ movie }: { movie: Movie }) {
-  const favorites = useSelector((state: RootState) => state.favorites);
+  const favorites = useSelector((state: RootState) => state.favorites.favorites);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const dispatch = useDispatch();
 

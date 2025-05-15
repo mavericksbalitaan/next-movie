@@ -4,7 +4,9 @@ import FavoriteCard from "./FavoriteCard";
 import DownloadFile from "./DownloadFile";
 
 export default function Favorites() {
-  const favorites = useSelector((state: RootState) => state.favorites);
+  const favorites = useSelector(
+    (state: RootState) => state.favorites.favorites,
+  );
 
   if (favorites.length === 0) {
     return <p className="text-white">No favorites yet.</p>;
