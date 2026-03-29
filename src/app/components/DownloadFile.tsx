@@ -6,7 +6,7 @@ export default function DownloadFile() {
   const list = useSelector((state: RootState) => state.favorites);
   const linkref = useRef<HTMLAnchorElement>(null);
 
-  if (list.length === 0) {
+  if (!list) {
     return null;
   }
 
