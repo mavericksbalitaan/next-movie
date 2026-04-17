@@ -3,11 +3,9 @@ module.exports = {
     {
       name: "next-movie",
       script: "yarn",
-      args: "start",
-      watch: true,
+      args: "start -p 5001",
       env: {
         NODE_ENV: "production",
-        PORT: 5002,
         NEXT_PUBLIC_API_KEY:
           "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMjI2MTFmZDExODcxODYyZDllZTE5YjYxYWY3YjRhOSIsIm5iZiI6MTc0NjU5NDQwMC4wOTEsInN1YiI6IjY4MWFlYTYwYjBhYTQxNThiYzg1MDhiMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.jGOAMoz5119ZF6tT3YLzs-vGeFUewvPB4VpyYRNZZVY",
         NEXT_PUBLIC_BASE_URL: "https://api.themoviedb.org/3",
